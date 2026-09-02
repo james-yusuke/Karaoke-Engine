@@ -1,0 +1,31 @@
+AI Karaoke - Third-Party Notices
+=================================
+
+This project is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Phase 2 vocal separation engine
+--------------------------------
+Phase 2's VocalSeparationService is implemented by
+PhaseCancellationVocalSeparationService (src/main/java/com/aikaraoke/service),
+which uses the classic phase-cancellation / mid-side technique
+(instrumental ≈ L - R) over PCM decoded via the JDK's built-in
+javax.sound.sampled API. No third-party model, weights, or library are
+bundled or invoked for this feature - it is pure Java using only the JDK
+standard library, so no additional license applies.
+
+This is NOT a neural source-separation model (e.g. Demucs, UVR). It is a
+simplified, fully-local, dependency-free approximation documented in
+VocalSeparationService's Javadoc. A future Phase would need to bundle and
+license a real separation model (e.g. Demucs, MIT License,
+https://github.com/facebookresearch/demucs) to improve separation quality;
+that model is NOT included in this repository.
+
+Existing dependencies (unchanged from Phase 1)
+-----------------------------------------------
+- OpenJFX (javafx-controls/graphics/base/web/media) - GPL v2 with the
+  Classpath Exception. https://openjfx.io/
+- SQLite JDBC (org.xerial:sqlite-jdbc) - Apache License 2.0.
+  https://github.com/xerial/sqlite-jdbc
+- org.json:json - the JSON License (a permissive license with the
+  "shall be used for Good, not Evil" clause).
+  https://github.com/stleary/JSON-java
